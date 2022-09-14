@@ -10,12 +10,16 @@ class App extends Component {
     super();
     this.state = { robots, searchField: "" };
   }
+  searchChange(event) {
+    console.log(event.target.value);
+  }
+
   render() {
     return (
       <div className='tc'>
         <h1>Robots</h1>
-        <SearchBox />
-        <CardList props={robots} />
+        <SearchBox searchChange={this.searchChange} />
+        <CardList props={this.state.robots} />
       </div>
     );
   }
