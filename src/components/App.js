@@ -3,12 +3,29 @@ import React, { Component } from "react";
 import CardList from "./CardList";
 import SearchBox from "./SearchBox";
 import Scroll from "./Scroll";
+import { connect } from "react-redux";
+import { setSearchField } from "../actions";
 // import "./index.css";
 import { render } from "@testing-library/react";
+import { searchRobots } from "../reducers";
+
+const mapStateToProps = (state) => {
+  return { searchfield: state.searchField };
+};
+
+const matchDispatchToProps = (dispatch) => {
+  return {
+    onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+  };
+};
+
 class App extends Component {
   constructor() {
     super();
-    this.state = { robots: [], searchField: "" };
+    this.state = {
+      robots: [],
+      // searchField: ""
+    };
   }
 
   componentDidMount() {
@@ -17,15 +34,15 @@ class App extends Component {
       .then((users) => this.setState({ robots: users }));
   }
 
-  onSearchChange = (event) => {
-    this.setState({ searchField: event.target.value });
-  };
+  // onSearchChange = (event) => {
+  //   this.setState({ searchField: event.target.value });
+  // };
 
   render() {
+    const { robots } = this.state;
+    const { searchField, onSearchChange } = this.props;
     const filteredRobots = this.state.robots.filter((robots) => {
-      return robots.name
-        .toLowerCase()
-        .includes(this.state.searchField.toLowerCase());
+      return robots.name.toLowerCase().includes(searchField.toLowerCase());
     });
     if (this.state.robots.length === 0) {
       return <h1>Loading..</h1>;
@@ -33,7 +50,7 @@ class App extends Component {
       return (
         <div className='tc'>
           <h1 className='f2'>Robots</h1>
-          <SearchBox searchChange={this.onSearchChange} />
+          <SearchBox searchChange={onSearchChange} />
           <Scroll>
             <CardList props={filteredRobots} />
           </Scroll>
@@ -43,4 +60,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(mapStateToProps, matchDispatchToProps)(App);
