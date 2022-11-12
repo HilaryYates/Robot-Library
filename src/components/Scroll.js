@@ -5,7 +5,7 @@ const Scroll = (props) => {
     <div
       style={{
         overflowY: "scroll",
-        border: "1px solid white",
+        border: ".5px solid white",
         height: "500px",
       }}
     >
