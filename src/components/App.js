@@ -4,18 +4,26 @@ import CardList from "./CardList";
 import SearchBox from "./SearchBox";
 import Scroll from "./Scroll";
 import { connect } from "react-redux";
-import { setSearchField } from "../actions";
+import { requestRobots, setSearchField } from "../actions";
 // import "./index.css";
 import { render } from "@testing-library/react";
 import { searchRobots } from "../reducers";
 
 const mapStateToProps = (state) => {
-  return { searchfield: state.searchField };
+  return {
+    searchfield: state.searchRobots.searchField,
+    robots: state.requestRobots.robots,
+    isPending: state.requestRobots.isPending,
+    error: state.requestRobots.error,
+  };
 };
 
 const matchDispatchToProps = (dispatch) => {
   return {
     onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+    onRequestRobots: () => {
+      dispatch(requestRobots());
+    },
   };
 };
 
@@ -33,10 +41,6 @@ class App extends Component {
       .then((response) => response.json())
       .then((users) => this.setState({ robots: users }));
   }
-
-  // onSearchChange = (event) => {
-  //   this.setState({ searchField: event.target.value });
-  // };
 
   render() {
     const { robots } = this.state;

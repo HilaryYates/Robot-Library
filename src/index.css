@@ -5,8 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background: rgb(0, 0, 0); */
-  color: rgb(166, 255, 0);
   box-sizing: border-box;
 }
 
@@ -24,4 +22,8 @@ code {
 
 .search-box-container {
   padding-bottom: 30px;
+}
+
+.black-text {
+  color: ;
 }
