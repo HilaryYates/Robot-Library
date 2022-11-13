@@ -31,13 +31,12 @@ class App extends Component {
       <h1>Loading..</h1>
     ) : (
       <div className='tc'>
-        <h1 className='f2'>Robots</h1>
         <SearchBox searchChange={this.onSearchChange} />
-        <Scroll>
-          <ErrorBoundary>
-            <CardList props={filteredRobots} />
-          </ErrorBoundary>
-        </Scroll>
+        {/* <Scroll> */}
+        <ErrorBoundary>
+          <CardList props={filteredRobots} />
+        </ErrorBoundary>
+        {/* </Scroll> */}
       </div>
     );
   }

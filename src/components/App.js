@@ -49,11 +49,11 @@ class App extends Component {
     } else {
       return (
         <div className='tc'>
-          <h1 className='f2'>Robots</h1>
+          <h1 className='f2'>Search for the name of the Robot</h1>
           <SearchBox searchChange={onSearchChange} />
-          <Scroll>
-            <CardList props={filteredRobots} />
-          </Scroll>
+          {/* <Scroll> */}
+          <CardList props={filteredRobots} />
+          {/* </Scroll> */}
         </div>
       );
     }

@@ -1,5 +1,9 @@
-import { CHANGE_SEARCH_FIELD } from "./constants";
-
+import {
+  CHANGE_SEARCH_FIELD,
+  REQUEST_ROBOTS_FAILED,
+  REQUEST_ROBOTS_SUCCESS,
+  REQUEST_ROBOTS_PENDING,
+} from "./constants";
 const initialState = { searchField: "" };
 
 export const searchRobots = (state = initialState, action = {}) => {
@@ -10,3 +14,11 @@ export const searchRobots = (state = initialState, action = {}) => {
       return state;
   }
 };
+
+// export const requestRobots = (dispatch) => {
+//   dispatch({ type: REQUEST_ROBOTS_PENDING });
+// };
+
+// export const requestRobots = (dispatch) => {
+//   dispatch({ type: REQUEST_ROBOTS_PENDING });
+// };

@@ -5,11 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(0, 0, 0);
+  /* background: rgb(0, 0, 0); */
   color: rgb(166, 255, 0);
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.title {
+  padding-top: 50px;
+  padding-bottom: 15px;
+  font-size: 70px;
+  font-family: "IBM Plex Sans JP", sans-serif;
 }

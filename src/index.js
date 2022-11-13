@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { searchRobots } from "./reducers";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./containers/App";
 import "tachyons";
-
 const store = createStore(searchRobots);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
