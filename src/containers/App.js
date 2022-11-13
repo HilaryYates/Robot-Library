@@ -32,11 +32,9 @@ class App extends Component {
     ) : (
       <div className='tc'>
         <SearchBox searchChange={this.onSearchChange} />
-        {/* <Scroll> */}
         <ErrorBoundary>
           <CardList props={filteredRobots} />
         </ErrorBoundary>
-        {/* </Scroll> */}
       </div>
     );
   }

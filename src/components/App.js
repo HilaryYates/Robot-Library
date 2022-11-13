@@ -22,7 +22,8 @@ const matchDispatchToProps = (dispatch) => {
   return {
     onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
     onRequestRobots: () => {
-      dispatch(requestRobots());
+      requestRobots(dispatch);
+      // dispatch(requestRobots());
     },
   };
 };
@@ -37,9 +38,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((users) => this.setState({ robots: users }));
+    this.props.onRequestRobots();
   }
 
   render() {
