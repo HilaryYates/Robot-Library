@@ -17,11 +17,11 @@ code {
 
 .title {
   padding-top: 50px;
-  padding-bottom: 15px;
-  font-size: 70px;
+  padding-bottom: 5px;
+  font-size: 75px;
   font-family: "IBM Plex Sans JP", sans-serif;
 }
 
 .search-box-container {
-  padding-bottom: 15px;
+  padding-bottom: 30px;
 }
